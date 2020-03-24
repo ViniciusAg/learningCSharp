@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ecommerce.Core.Ecommerce.Repositorio;
+using System;
 
 namespace Ecommerce.Core
 {
@@ -6,12 +7,17 @@ namespace Ecommerce.Core
     {
         static void Main(string[] args)
         {
-            var vinicius = new Cadastro(nome: "Vinicius Aguiar", cpf: "123.456.789/12", idade: 22);
-            vinicius.Endereço = "Rua Coronel Pereira Neto";
-            vinicius.Telefone = "(11) 95023-4862";
-            vinicius.Email = "aguiar.santos.vinicius@gmail.com";
-          
-            vinicius.MostrarCadastro(vinicius);
+            var vinicius = new Cliente(nome: "Vinicius", cpf: "123.456.789/12", idade: 22);
+            var thamirys = new Cliente(nome: "Thamirys", cpf: "111.222.333/44", idade: 24);
+            vinicius.IncluirCliente(vinicius);
+            vinicius.IncluirCliente(thamirys);
+        
+            vinicius.ListaDeClientes();
+
+            vinicius.DeletarCliente("Thamirys");
+
+            vinicius.ListaDeClientes();
+
             Console.ReadLine();
         }
     }
